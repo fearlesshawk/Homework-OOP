@@ -20,7 +20,7 @@ class Student:
             else:
                 lecturer.grades[course] = [grade]
         else:
-            return print('ошибка добавления оценки Student - > lecturer')
+            return print('ошибка добавления оценки лектора студентом')
 
     def __str__(self):
         return f'Студенты \nИмя: {self.name} \nФамилия: {self.surname} \nСредняя оценка по курсам: {self.average_grade}  \nКурсы в процессе изучения: {", ".join(self.courses_in_progress)} \nЗавершенные курсы: {", ".join(self.finished_courses)}'
@@ -51,7 +51,7 @@ class Mentor:
             else:
                 student.grades[course] = [grade]
         else:
-            return print('ошибка добавления оценки Reviewer -> Student')
+            return print('ошибка добавления оценки студента преподавателем')
 
 class Lecturers(Mentor):
     def __init__(self, name, surname):
@@ -70,7 +70,7 @@ class Lecturers(Mentor):
 
     def __gt__(self, other):
         if not isinstance(other, Lecturers):
-            print('Not a Lecturers!')
+            print('Не лектор.')
             return
         for course_name, grade in self.average_grade.items():
             for course_name_2, grade_2 in other.average_grade.items():
@@ -104,25 +104,25 @@ cool_lector.courses_attached += ['Python', 'Git']
 cool_lector2 = Lecturers('Yunho', 'Jeung')
 cool_lector2.courses_attached += ['Python', 'Git']
 
-# Оценки студентам
-cool_mentor.rate_st(best_student, 'Python', 1)
-cool_mentor.rate_st(best_student, 'Git', 7)
-cool_mentor.rate_st(best_student, 'Python', 3)
-cool_mentor.rate_st(best_student, 'Git', 9)
-cool_mentor.rate_st(best_student2, 'Python', 5)
-cool_mentor.rate_st(best_student2, 'Git', 2)
-cool_mentor.rate_st(best_student2, 'Python', 6)
-cool_mentor.rate_st(best_student2, 'Git', 3)
+# # Оценки студентам
+# cool_mentor.rate_st(best_student, 'Python', 3)
+# cool_mentor.rate_st(best_student, 'Git', 4)
+# cool_mentor.rate_st(best_student, 'Python', 6)
+# cool_mentor.rate_st(best_student, 'Git', 10)
+# cool_mentor.rate_st(best_student2, 'Python', 5)
+# cool_mentor.rate_st(best_student2, 'Git', 1)
+# cool_mentor.rate_st(best_student2, 'Python', 3)
+# cool_mentor.rate_st(best_student2, 'Git', 4)
 
 # Оценки лекторам
-best_student.rate_lec(cool_lector, 'Git', 3)
-best_student.rate_lec(cool_lector, 'Git', 5)
-best_student.rate_lec(cool_lector, 'Python', 10)
-best_student.rate_lec(cool_lector, 'Python', 8)
-best_student.rate_lec(cool_lector2, 'Git', 1)
-best_student.rate_lec(cool_lector2, 'Git', 3)
-best_student.rate_lec(cool_lector2, 'Python', 0)
-best_student.rate_lec(cool_lector2, 'Python', 3)
+# best_student.rate_lec(cool_lector, 'Git', 6)
+# best_student.rate_lec(cool_lector, 'Git', 6)
+# best_student.rate_lec(cool_lector, 'Python', 3)
+# best_student.rate_lec(cool_lector, 'Python', 6)
+# best_student.rate_lec(cool_lector2, 'Git', 8)
+# best_student.rate_lec(cool_lector2, 'Git', 2)
+# best_student.rate_lec(cool_lector2, 'Python', 10)
+# best_student.rate_lec(cool_lector2, 'Python', 9)
 #
 # print(cool_lector.grades)
 # print(best_student.grades)
